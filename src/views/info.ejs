@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="recourses/css/styles.css">
     <title>Información</title>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light col-sm-12">
           <a class="navbar-brand" href="#">Tienda de productos para el cuidado del cabello</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -22,14 +23,17 @@
         </nav>
       </header>
 
-      <div class="col-md-4">
+      <div class="col-md-4 row justify-content-center mt-5 ml-5 container-item col-sm-12">
         <div class="card mb-4">
           <img src=<%= producto.url %> class="card-img-top" alt="Producto 1">
           <div class="card-body">
             <h3 class="card-title"><%= producto.nombre %></h3>
             <p class="card-text"> <%= producto.descripcion  %> .</p>
             <p class="card-text">Precio : <%= producto.precio %></p>
-            
+            <p class="card-text">Categoría : <%= producto.nombre_c %></p>
+            <p class="card-text">Código : <%= producto.codigo %></p>
+            <a href="#" class="btn btn-primary">Añadir al Carrito</a>
+            <a href="/" class="btn btn-secondary">Cancelar</a>
           </div>
         </div>
       </div>
