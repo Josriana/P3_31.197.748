@@ -2,6 +2,8 @@ const {Router} = require('express');
 const router = Router();
 const db = require('../database/db');
 const crud = require('../controller/crud.js')
+const midelware = require('../controller/midelware.js');
+
 
 
 
@@ -10,11 +12,11 @@ const crud = require('../controller/crud.js')
 router.get("/" , crud.getProducts)
  
   // Ruta de informacion del producto
-router.get('/info/:id', crud.infoProduct );
+router.get('/info/:id' , crud.infoProduct );
 
-//Ruta para iniciar session
-router.get('/login', (req, res) => {
-  res.render('login.ejs')
+//Ruta para iniciar session de administrador
+router.get('/login',  (req, res) => {
+  res.render('login_admin.ejs')
 });
 
 //Ruta para verificar si existe el usuario
@@ -44,7 +46,26 @@ router.get('/addImg/:id', crud.addImg);
 //Ruta para guardar una imagen
 router.post('/addImg', crud.saveImg);
 
-router.get('/prueba', );
+router.get('/register', crud.registerUser);
+
+router.post('/saveUser',  crud.userActive);
+
+//Ruta para iniciar session como usuario
+router.get('/login_user',(req, res) => {
+  res.render('login_users.ejs')
+});
+
+router.post('/login_user', crud.postLogin);
+
+router.get('/prueba', (req, res) => {
+  res.render('prueba.ejs')
+});
+
+router.get('/comprar/:id' ,midelware , crud.getComprar);
+
+router.post('/comprar', crud.fakepayment);
+
+router.get('/ventas', crud.getVentas)
 
 
 
