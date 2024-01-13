@@ -1,5 +1,11 @@
 const express = require('express');
 const app = express();
+const bodyParser = require("body-parser");
+const session = require("express-session");
+const dotenv = require('dotenv').config();
+const axios = require('axios');
+
+
 
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views')
@@ -8,8 +14,12 @@ app.set('views', __dirname + '/views')
 app.use(express.static('public'));
 app.use('/recourses', express.static(__dirname + '/public'))
 
-
-app.use(express.json());
+app.use(session({
+    secret : process.env.SECRET,
+    resave : true,
+    saveUninitialized: true
+}))
+app.use(bodyParser.json());
 app.use(express.urlencoded({extended:false}));
 
 //Puerto

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login User</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+  </style>
+
+
+  
+  
+
+
+</head>
+<body>
+  <div class="container col-md-4">
+    <h2 class="text-center ">Login User</h2>
+    <form id="registroForm" method="post" action="/login_user">
+      
+      <div class="form-group mb-2">
+        <label for="correo">Correo Electrónico:</label>
+        <input type="email" class="form-control" id="correo" name="correo" placeholder="Ingresa tu correo electrónico">
+      </div>
+      <div class="form-group">
+        <label for="contrasena">Contraseña:</label>
+        <input type="password" class="form-control" id="password" name="password" placeholder="Ingresa tu contraseña">
+      </div>
+      
+      
+      <button type="submit" class="btn btn-primary">Iniciar</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("registroForm").addEventListener("submit", function(event) {
+      
+
+      // Obtener los valores de los campos
+      const nombre = document.getElementById("nombre").value;
+      const correo = document.getElementById("correo").value;
+      const contrasena = document.getElementById("contrasena").value;
+      const repetirContrasena = document.getElementById("repetir-contrasena").value;
+
+      // Validar que los campos no estén vacíos
+      if (nombre.trim() === "" || correo.trim() === "" || contrasena.trim() === "" || repetirContrasena.trim() === "") {
+        alert("Por favor, completa todos los campos.");
+        event.preventDefault(); // Evita el envío del formulario por defecto
+        return;
+      }
+      // Validar que el correo sea válido
+      const correoExpresion = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!correoExpresion.test(correo)) {
+        alert("Por favor, ingresa un correo electrónico válido.");
+        event.preventDefault(); // Evita el envío del formulario por defecto
+        return;
+      }
+      // Validar que las contraseñas sean iguales
+      if (contrasena !== repetirContrasena) {
+        alert("Las contraseñas no coinciden.");
+        event.preventDefault(); // Evita el envío del formulario por defecto
+        return;
+      }
+      // Si todas las validaciones son exitosas, puedes enviar el formulario aquí
+      alert("Formulario enviado correctamente.");
+      // document.getElementById("registroForm").submit(); // Descomenta esta línea para enviar el formulario realmente
+    });
+    
+   
+
+  </script>
+</body>
+</html>
