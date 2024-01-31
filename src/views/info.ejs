@@ -32,23 +32,7 @@
             <p class="card-text">Precio : <%= producto.precio %></p>
             <p class="card-text">Categoría : <%= producto.nombre_c %></p>
             <p class="card-text">Código : <%= producto.codigo %></p>
-            <div class="clas" style="display:flex; gap: 5px;">
-              <p>Califica el producto: </p>
-              <p class="clasificacion">
-                <input class="radio" type="radio" name="estrellas" value="5">
-                <label>★</label>
-                <input class="radio" type="radio" name="estrellas" value="4">
-                <label>★</label>
-                <input class="radio" type="radio" name="estrellas" value="3">
-                <label>★</label>
-                <input class="radio" type="radio" name="estrellas" value="2">
-                <label>★</label>
-                <input class="radio" type="radio" name="estrellas" value="1">
-                <label >★</label>
-                <p style="display: none;" class="producto"><%= producto.producto_id %></p>
-              </p>
-              
-            </div>
+           
             <a href="/comprar/<%= producto.id %> " class="btn btn-primary">Comprar</a>
             <a href="/" class="btn btn-secondary">Cancelar</a>
           </div>
